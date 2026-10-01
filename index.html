@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Ajude a desenhar o Armazém Digital: marque os indicadores que importam na sua unidade armazenadora. Leva cerca de 8 minutos.">
+<meta name="description" content="12 indicadores, 1 toque cada, cerca de 3 minutos. Ajude a desenhar o Armazém Digital.">
 <meta property="og:title" content="Armazém Digital · Validação de Indicadores">
-<meta property="og:description" content="Quais números mandam na sua unidade? Leva cerca de 8 minutos.">
+<meta property="og:description" content="Quais números mandam no seu armazém? 12 itens, cerca de 3 minutos.">
 <meta name="robots" content="noindex">
 <title>Armazém Digital · Validação de Indicadores</title>
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: coluna única de formulário (máx 720px), etapas da unidade armazenadora em ordem de fluxo do grão, barra de progresso fixa no rodapé */
+/* Layout: coluna única curta (máx 640px); 12 indicadores em 4 blocos, 1 toque cada; envio pelo WhatsApp na barra fixa */
 :root{
   --bg:#F4F1E6; --surface:#FCFBF6; --fg:#152B1C; --muted:#5A6A5D; --line:#DAD6C6;
   --brand:#152B1C; --on-brand:#F4F1E6; --leaf:#8CCB5E; --on-leaf:#152B1C; --leaf-soft:#E3EFD6;
@@ -32,78 +32,52 @@
   --brand:#8CCB5E; --on-brand:#0E1B12; --leaf:#8CCB5E; --on-leaf:#0E1B12; --leaf-soft:#233B27;
   --off:#23302A; --warn:#E3A55A; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body);padding-inline:16px;padding-block:0 96px}
-.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
-header.top{padding-block:28px 4px;display:flex;flex-direction:column;gap:14px}
-.brandrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.mark{width:34px;height:34px;border-radius:8px;background:var(--brand);display:grid;place-items:center;flex:none}
-.mark svg{display:block}
-.brandname{font:800 17px/1.1 var(--f-display);letter-spacing:.01em}
-.brandname small{display:block;font:500 11px/1.3 var(--f-body);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-h1{font:800 clamp(28px,6vw,40px)/1.05 var(--f-display);margin:6px 0 0;text-wrap:balance;letter-spacing:-.01em}
-.lede{margin:0;max-width:62ch;color:var(--fg)}
-.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-.meta b{color:var(--fg);font-weight:600}
-.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--muted);padding:12px 14px;border:1px dashed var(--line);border-radius:10px}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
-section.stage{display:flex;flex-direction:column;gap:12px}
-.stagehead{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--fg);padding-bottom:8px}
-.stagehead .code{font:500 13px var(--f-mono);color:var(--muted)}
-.stagehead h2{font:700 21px/1.2 var(--f-display);margin:0;text-wrap:balance}
-.stagehead p{margin:0}
-.stagenote{font-size:13px;color:var(--muted);margin:-2px 0 2px}
-.item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:10px}
-.item[data-v="e"]{border-color:var(--leaf);box-shadow:inset 3px 0 0 var(--leaf)}
-.item[data-v="n"] .iname{color:var(--muted)}
-.ihead{display:flex;gap:10px;align-items:baseline}
-.icode{font:500 12px var(--f-mono);color:var(--muted);flex:none;width:2.2em}
-.itext{min-width:0;display:flex;flex-direction:column;gap:3px}
-.iname{font-weight:600;font-size:15.5px}
-.idesc{font-size:14px;color:var(--muted)}
-.iref{font-size:12.5px;color:var(--muted);font-style:italic}
-.controls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding-left:calc(2.2em + 10px)}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg)}
-.seg button{font:500 13.5px var(--f-body);color:var(--fg);background:transparent;border:0;padding:7px 13px;cursor:pointer;min-height:36px}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--f-body);padding-inline:16px;padding-block:0 92px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+header.top{padding-block:24px 0;display:flex;flex-direction:column;gap:12px}
+.brandrow{display:flex;align-items:center;gap:10px}
+.mark{width:32px;height:32px;border-radius:8px;background:var(--brand);display:grid;place-items:center;flex:none}
+.brandname{font:800 16px/1.1 var(--f-display)}
+.brandname small{display:block;font:500 10.5px/1.3 var(--f-body);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+h1{font:800 clamp(26px,6vw,34px)/1.08 var(--f-display);margin:4px 0 0;text-wrap:balance}
+.lede{margin:0;max-width:60ch}
+.lede b{font-weight:600}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.who input{width:100%}
+input[type=text]{font:inherit;font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:42px;max-width:100%}
+.block{display:flex;flex-direction:column;gap:8px}
+.block h2{font:700 13px/1.2 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.row[data-v="e"]{border-color:var(--leaf);box-shadow:inset 3px 0 0 var(--leaf)}
+.row[data-v="n"] .rname{color:var(--muted)}
+.rtext{min-width:0;flex:1 1 220px;display:flex;flex-direction:column}
+.rname{font-weight:600}
+.rdesc{font-size:13px;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg);flex:none}
+.seg button{font:500 13.5px var(--f-body);color:var(--fg);background:transparent;border:0;padding:7px 12px;cursor:pointer;min-height:38px}
 .seg button+button{border-left:1px solid var(--line)}
 .seg button[aria-pressed="true"][data-v="e"]{background:var(--leaf);color:var(--on-leaf);font-weight:600}
 .seg button[aria-pressed="true"][data-v="u"]{background:var(--leaf-soft);color:var(--fg);font-weight:600}
-.seg button[aria-pressed="true"][data-v="n"]{background:var(--off);color:var(--muted);font-weight:600;text-decoration:line-through}
-.how{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
-select,input[type=text],input[type=number],textarea{font:inherit;font-size:14px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 9px;min-height:36px;max-width:100%}
-textarea{width:100%;min-height:74px;resize:vertical}
-.param{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-.param input[type=number]{width:5.2em;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.param .unit{font-family:var(--f-mono)}
-button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible,label.chip:focus-within{outline:2px solid var(--leaf);outline-offset:2px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px}
-.field{display:flex;flex-direction:column;gap:6px;min-width:0}
-.field>label,.field>.lbl{font-size:13px;font-weight:600;letter-spacing:.02em}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.grid2 input,.grid2 select{width:100%}
+.seg button[aria-pressed="true"][data-v="n"]{background:var(--off);color:var(--muted);font-weight:600}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-label.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px;cursor:pointer;background:var(--bg);min-height:36px}
+label.chip{white-space:nowrap;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:14px;cursor:pointer;background:var(--surface);min-height:38px}
 label.chip input{accent-color:var(--leaf);margin:0}
 label.chip:has(input:checked){background:var(--leaf-soft);border-color:var(--leaf)}
-.newrow{display:grid;grid-template-columns:1.3fr 1fr;gap:8px}
-.newrow input{width:100%}
-.out{white-space:pre-wrap;font:13px/1.5 var(--f-mono);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;max-height:320px;overflow:auto;margin:0}
-.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.btn{font:600 15px var(--f-body);border-radius:10px;padding:11px 18px;border:1px solid var(--brand);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:44px}
-.btn.primary{background:var(--brand);color:var(--on-brand)}
-.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
-.small{font-size:13px;color:var(--muted);margin:0}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label.l,.field .l{font-size:14px;font-weight:600}
+.field input{width:100%}
+button:focus-visible,input:focus-visible,a:focus-visible,label.chip:focus-within{outline:2px solid var(--leaf);outline-offset:2px}
+.foot{font-size:12.5px;color:var(--muted);margin:0}
 .num{font-family:var(--f-mono);user-select:all;color:var(--fg)}
-.warnline{color:var(--warn);font-size:13px;margin:0}
 .bar{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));z-index:5}
-.bar .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.bar .in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px}
 .prog{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;font-size:13px}
 .track{height:6px;border-radius:99px;background:var(--off);overflow:hidden}
 .fill{height:100%;background:var(--leaf);width:0;transition:width .25s}
-.bar .btn{padding:9px 14px;font-size:14px;min-height:40px}
-footer.foot{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px}
-footer.foot a{color:var(--muted)}
-@media (max-width:480px){.controls{padding-left:0}.newrow{grid-template-columns:1fr}}
+.btn{font:600 15px var(--f-body);border-radius:10px;padding:10px 16px;border:1px solid var(--brand);background:var(--brand);color:var(--on-brand);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.copy{font:500 13px var(--f-body);background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;padding:0}
+@media (max-width:420px){.who{grid-template-columns:1fr}.seg button{padding:7px 10px}}
 @media (prefers-reduced-motion:reduce){.fill{transition:none}}
 </style>
 
@@ -112,293 +86,124 @@ footer.foot a{color:var(--muted)}
 <div class="wrap">
   <header class="top">
     <div class="brandrow">
-      <div class="mark" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 18V8a6 6 0 0 1 12 0v10" fill="none" stroke="#8CCB5E" stroke-width="2"/><path d="M7 11h6M7 14h6" stroke="#F4F1E6" stroke-width="1.6"/></svg>
-      </div>
+      <div class="mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><path d="M4 18V8a6 6 0 0 1 12 0v10" fill="none" stroke="#8CCB5E" stroke-width="2"/><path d="M7 11h6M7 14h6" stroke="#F4F1E6" stroke-width="1.6"/></svg></div>
       <div class="brandname">Armazém Digital<small>by Campo Digital</small></div>
     </div>
-    <h1>Quais números mandam na sua unidade?</h1>
-    <p class="lede">Estamos desenhando o painel e os avisos do Armazém Digital junto com quem opera armazém de verdade. Para cada indicador abaixo, diga se ele é essencial, útil ou se vocês não usam. Onde houver um limite sugerido, ajuste para o valor da sua operação. No fim, suas respostas vão direto pelo WhatsApp.</p>
-    <div class="meta"><span><b>≈ 8 min</b> para responder</span><span><b>25</b> indicadores em 5 etapas</span><span>Rascunho salvo neste aparelho</span></div>
-    <div class="legend" aria-label="Legenda">
-      <span><i class="dot" style="background:var(--leaf)"></i><b>Essencial</b>: quero ver todo dia</span>
-      <span><i class="dot" style="background:var(--leaf-soft);border:1px solid var(--line)"></i><b>Útil</b>: olho de vez em quando</span>
-      <span><i class="dot" style="background:var(--off);border:1px solid var(--line)"></i><b>Não uso</b>: não faz diferença aqui</span>
+    <h1>Quais números mandam no seu armazém?</h1>
+    <p class="lede">São <b>12 itens, 1 toque cada, cerca de 3 minutos</b>. Marque se o indicador é essencial, útil ou se vocês não usam. As respostas vão direto pelo WhatsApp.</p>
+    <div class="who">
+      <input type="text" id="p-nome" placeholder="Seu nome" aria-label="Seu nome" autocomplete="name">
+      <input type="text" id="p-emp" placeholder="Empresa / unidade" aria-label="Empresa ou unidade">
     </div>
   </header>
 
-  <section class="stage" aria-labelledby="h-perfil">
-    <div class="stagehead"><h2 id="h-perfil">Sobre a unidade</h2></div>
-    <div class="card">
-      <div class="grid2">
-        <div class="field"><label for="p-nome">Seu nome</label><input type="text" id="p-nome" autocomplete="name"></div>
-        <div class="field"><label for="p-emp">Empresa e unidade</label><input type="text" id="p-emp" placeholder="Ex.: Grupo X · unidade Sorriso"></div>
-        <div class="field"><label for="p-func">Sua função</label>
-          <select id="p-func"><option value="">Escolha</option><option>Gerente de armazém / unidade</option><option>Diretor / proprietário</option><option>Supervisor de secagem</option><option>Classificador</option><option>Qualidade / certificação</option><option>Outra</option></select></div>
-        <div class="field"><label for="p-cap">Capacidade estática (t)</label><input type="number" id="p-cap" inputmode="numeric" placeholder="Ex.: 45000"></div>
-      </div>
-      <div class="field"><span class="lbl">Grãos que passam pela unidade</span>
-        <div class="chips" id="p-prod"></div></div>
-      <div class="field"><span class="lbl">Recebe grão de terceiros (produtores, depositantes)?</span>
-        <div class="chips" id="p-terc"></div></div>
-      <div class="field"><span class="lbl">Como vocês registram a operação hoje?</span>
-        <div class="chips" id="p-reg"></div></div>
-    </div>
-  </section>
+  <div id="blocks"></div>
 
-  <div id="stages"></div>
+  <div class="field">
+    <label class="l" for="p-falta">Faltou algum indicador importante? <span style="font-weight:400;color:var(--muted)">(opcional)</span></label>
+    <input type="text" id="p-falta" placeholder="Ex.: consumo de energia por tonelada">
+  </div>
+  <div class="field">
+    <span class="l">Toparia testar na sua unidade por 30 dias?</span>
+    <div class="chips" id="p-teste"></div>
+  </div>
 
-  <section class="stage" aria-labelledby="h-avisos">
-    <div class="stagehead"><span class="code">F</span><h2 id="h-avisos">Avisos no WhatsApp</h2></div>
-    <p class="stagenote">Quais avisos alguém da equipe deveria receber no celular, na hora em que acontecem?</p>
-    <div class="card">
-      <div class="field"><span class="lbl">Avisos</span><div class="chips" id="f-avisos"></div></div>
-      <div class="field"><span class="lbl">Quem recebe</span><div class="chips" id="f-quem"></div></div>
-    </div>
-  </section>
-
-  <section class="stage" aria-labelledby="h-novos">
-    <div class="stagehead"><span class="code">G</span><h2 id="h-novos">O que ficou de fora</h2></div>
-    <div class="card">
-      <div class="field"><span class="lbl">Indicadores que vocês acompanham e não estão na lista</span>
-        <div class="newrow"><input type="text" id="g-n1" placeholder="Indicador" aria-label="Novo indicador 1"><input type="text" id="g-c1" placeholder="Como mede hoje" aria-label="Como mede o indicador 1"></div>
-        <div class="newrow"><input type="text" id="g-n2" placeholder="Indicador" aria-label="Novo indicador 2"><input type="text" id="g-c2" placeholder="Como mede hoje" aria-label="Como mede o indicador 2"></div>
-        <div class="newrow"><input type="text" id="g-n3" placeholder="Indicador" aria-label="Novo indicador 3"><input type="text" id="g-c3" placeholder="Como mede hoje" aria-label="Como mede o indicador 3"></div>
-      </div>
-      <div class="field"><label for="g-dor">Qual é hoje a maior dor da operação? O que mais dá prejuízo ou retrabalho?</label>
-        <textarea id="g-dor" placeholder="Ex.: descobrir aquecimento tarde demais, planilha de secador que ninguém preenche, fila na safra..."></textarea></div>
-      <div class="field"><span class="lbl">Toparia testar o Armazém Digital na sua unidade por 30 dias?</span>
-        <div class="chips" id="g-teste"></div></div>
-    </div>
-  </section>
-
-  <section class="stage" id="enviar" aria-labelledby="h-enviar">
-    <div class="stagehead"><h2 id="h-enviar">Revisar e enviar</h2></div>
-    <div class="card">
-      <p class="small">Este é o texto que vai para o WhatsApp. Confira e toque em enviar; ele abre a conversa com a mensagem pronta.</p>
-      <pre class="out" id="out" tabindex="0"></pre>
-      <p class="warnline" id="warn" hidden></p>
-      <div class="actions">
-        <a class="btn primary" id="wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
-        <button class="btn ghost" type="button" id="copy">Copiar texto</button>
-      </div>
-      <p class="small">Se o WhatsApp não abrir, copie o texto e mande para <span class="num">+55 48 99620-0390</span> (Diego Kurtz).</p>
-    </div>
-  </section>
-
-  <footer class="foot">
-    <span>Armazém Digital · by Campo Digital. Suas respostas só chegam até nós quando você envia a mensagem.</span>
-    <span>Referências usadas nos limites sugeridos: IN MAPA 60/2011 e 11/2007 (classificação de milho e soja), IN MAPA 29/2011 (certificação de unidades armazenadoras), Lei 13.103/2015, cartilhas SENAR/FAEP de armazenagem e Embrapa Milho e Sorgo.</span>
-  </footer>
+  <p class="foot">Se o WhatsApp não abrir, toque em <button class="copy" type="button" id="copy">copiar respostas</button> e mande para <span class="num">+55 48 99620-0390</span>.</p>
 </div>
 
-<div class="bar" role="region" aria-label="Progresso">
+<div class="bar" role="region" aria-label="Enviar">
   <div class="in">
-    <div class="prog"><span id="progtxt">0 de 25 indicadores marcados</span><div class="track"><div class="fill" id="fill"></div></div></div>
-    <a class="btn primary" href="#enviar">Revisar e enviar</a>
+    <div class="prog"><span id="progtxt">0 de 12 marcados</span><div class="track"><div class="fill" id="fill"></div></div></div>
+    <a class="btn" id="wa" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pelo WhatsApp</a>
   </div>
 </div>
 
 <script>
 const WA = "5548996200390";
-const HOW = ["Não mede","Papel","Planilha","Sistema / ERP","Automático (sensor)"];
-const STAGES = [
- {code:"A", name:"Recebimento e classificação", items:[
-  {id:"A1", n:"Recebido no dia e na safra", d:"Toneladas e número de cargas por produto, hoje e acumulado da safra."},
-  {id:"A2", n:"Classificação de cada carga", d:"Umidade, impureza, avariados e ardidos medidos na recepção.", r:"Padrões oficiais: IN MAPA 60/2011 (milho) e 11/2007 (soja)."},
-  {id:"A3", n:"Descontos do romaneio", d:"Quebra de umidade e impureza aplicada em cada carga, por produtor."},
-  {id:"A4", n:"Fila e tempo de descarga", d:"Horas do caminhão entre a chegada no pátio e a saída.", r:"A Lei 13.103/2015 prevê até 5 h para carga e descarga.", p:{t:"Avisar acima de",v:5,u:"h"}},
-  {id:"A5", n:"Saldo por produtor ou depositante", d:"Quanto cada produtor tem guardado, já com descontos. Só para quem recebe de terceiros."}
- ]},
- {code:"B", name:"Secagem", items:[
-  {id:"B1", n:"Umidade de entrada e saída por secador", d:"Leitura do operador a cada hora, com alvo de saída por produto.", r:"SENAR/FAEP: milho 13 a 14% e soja 12 a 13% para guardar até 1 ano.", p:{t:"Alvo de saída",v:14,u:"% milho",v2:13,u2:"% soja"}},
-  {id:"B2", n:"Temperatura do ar de secagem e da fornalha", d:"Para não queimar nem trincar o grão.", r:"Embrapa Milho e Sorgo: evitar que o grão passe de 60 °C na secagem.", p:{t:"Avisar acima de",v:60,u:"°C"}},
-  {id:"B3", n:"Vazão e horas de secador", d:"Toneladas por hora e horas em operação no dia, por secador."},
-  {id:"B4", n:"Consumo de lenha ou combustível", d:"m³ de lenha (ou kg, litros) por tonelada seca."},
-  {id:"B5", n:"Custo de secagem por tonelada", d:"R$/t somando combustível, energia e mão de obra."}
- ]},
- {code:"C", name:"Conservação no silo", items:[
-  {id:"C1", n:"Temperatura máxima por silo", d:"O cabo mais quente de cada silo e graneleiro.", p:{t:"Avisar acima de",v:30,u:"°C"}},
-  {id:"C2", n:"Ponto aquecendo fora da média", d:"Um cabo que sobe em relação à média do silo ou à leitura anterior, antes de chegar ao limite.", r:"SENAR/FAEP: ponto fora da média pede leitura mais frequente e ação imediata.", p:{t:"Avisar com alta de",v:3,u:"°C"}},
-  {id:"C3", n:"Leitura da termometria em dia", d:"Aviso quando um silo fica sem leitura.", r:"SENAR/FAEP recomenda 1 a 2 leituras por dia.", p:{t:"Atrasada após",v:24,u:"h"}},
-  {id:"C4", n:"Aeração", d:"Horas ligadas por silo e condição do ar na hora de ligar.", r:"Embrapa: aerar com umidade relativa do ar abaixo de 75%."},
-  {id:"C5", n:"Pragas e expurgo", d:"Monitoramento de insetos, data, produto e silo expurgado."},
-  {id:"C6", n:"Quebra técnica", d:"Diferença entre o estoque contábil e o físico ao longo da safra.", p:{t:"Meta de até",v:"",u:"%"}}
- ]},
- {code:"D", name:"Estoque, valor e expedição", items:[
-  {id:"D1", n:"Saldo e ocupação por silo", d:"Toneladas em cada estrutura e % da capacidade usada."},
-  {id:"D2", n:"Valor do estoque na cotação do dia", d:"Estoque físico multiplicado pelo preço da saca de 60 kg."},
-  {id:"D3", n:"Referência de preço", d:"Qual cotação vocês usam para valorizar o estoque.", sel:["CEPEA/ESALQ","B3","Cooperativa ou trading da região","Outra"]},
-  {id:"D4", n:"Expedição", d:"Toneladas expedidas, cargas e conferência do peso de saída."},
-  {id:"D5", n:"Contratos a entregar", d:"Volume comprometido em contratos contra o estoque disponível."}
- ]},
- {code:"E", name:"Conformidade e manutenção", items:[
-  {id:"E1", n:"Registros para certificação", d:"Termometria, aeração, pragas e limpeza guardados por data, prontos para auditoria.", r:"Exigidos na certificação de unidades armazenadoras (IN MAPA 29/2011)."},
-  {id:"E2", n:"Calibração da balança e do medidor de umidade", d:"Data da última aferição e aviso antes de vencer."},
-  {id:"E3", n:"Manutenção preventiva", d:"Elevadores, correias, secadores e fitas, com aviso de vencimento."},
-  {id:"E4", n:"Entrada em silo (NR-33)", d:"Registro de permissão de entrada em espaço confinado."}
- ]}
+const BLOCKS = [
+ {name:"Recebimento", items:[
+  {id:1, n:"Recebido no dia e na safra", d:"toneladas e nº de cargas"},
+  {id:2, n:"Classificação e descontos por carga", d:"umidade, impureza, avariados"},
+  {id:3, n:"Fila e tempo de descarga", d:"horas do caminhão no pátio"}]},
+ {name:"Secagem", items:[
+  {id:4, n:"Umidade de entrada e saída", d:"por secador, com alvo"},
+  {id:5, n:"Custo de secagem por tonelada", d:"lenha/combustível e R$/t"}]},
+ {name:"Conservação", items:[
+  {id:6, n:"Temperatura dos silos", d:"aviso quando um ponto aquece"},
+  {id:7, n:"Aeração", d:"horas ligadas por silo"},
+  {id:8, n:"Quebra técnica", d:"estoque contábil × físico"},
+  {id:9, n:"Pragas e expurgo", d:"monitoramento e datas"}]},
+ {name:"Estoque e gestão", items:[
+  {id:10, n:"Saldo e ocupação por silo", d:"t e % da capacidade"},
+  {id:11, n:"Valor do estoque na cotação do dia", d:"estoque × preço da saca"},
+  {id:12, n:"Registros, calibração e manutenção", d:"prontos para auditoria"}]}
 ];
-const AVISOS = ["Resumo do dia às 6h","Silo aquecendo","Umidade de saída fora do alvo","Fila acima do limite","Termometria atrasada","Variação da cotação","Calibração ou manutenção vencendo"];
-const QUEM = ["Diretor / proprietário","Gerente","Operador de secador","Classificador"];
-const TOTAL = STAGES.reduce((a,s)=>a+s.items.length,0);
+const ALL = BLOCKS.flatMap(b=>b.items), TOTAL = ALL.length;
+const LBL = {e:"Essencial", u:"Útil", n:"Não uso"};
 
-let S = {v:{}, how:{}, p:{}, p2:{}, sel:{}};
-try{ const raw = localStorage.getItem("armazem-validacao"); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){}
-function save(){ try{ localStorage.setItem("armazem-validacao", JSON.stringify(S)); }catch(e){} }
+let S = {v:{}};
+try{ const r = localStorage.getItem("armazem-validacao-3min"); if(r) S = Object.assign(S, JSON.parse(r)); }catch(e){}
+const save = ()=>{ try{ localStorage.setItem("armazem-validacao-3min", JSON.stringify(S)); }catch(e){} };
 
-function chips(elId, name, opts, type){
-  const box = document.getElementById(elId);
-  opts.forEach((o,i)=>{
-    const id = elId+"-"+i;
-    const l = document.createElement("label"); l.className="chip";
-    const inp = document.createElement("input"); inp.type=type; inp.name=name; inp.id=id; inp.value=o;
-    const saved = S[name];
-    if(saved && (Array.isArray(saved)? saved.includes(o) : saved===o)) inp.checked=true;
-    inp.addEventListener("change",()=>{
-      S[name] = type==="radio" ? o : [...box.querySelectorAll("input:checked")].map(x=>x.value);
-      save(); update();
-    });
-    l.append(inp, document.createTextNode(o)); box.append(l);
-  });
-}
-chips("p-prod","prod",["Milho","Soja","Trigo","Sorgo","Arroz","Feijão","Outros"],"checkbox");
-chips("p-terc","terc",["Sim","Não","Parte"],"radio");
-chips("p-reg","reg",["Papel","Planilha","Sistema / ERP","Termometria automática"],"checkbox");
-chips("f-avisos","avisos",AVISOS,"checkbox");
-chips("f-quem","quem",QUEM,"checkbox");
-chips("g-teste","teste",["Sim","Talvez, quero conversar","Agora não"],"radio");
-
-const host = document.getElementById("stages");
-STAGES.forEach(st=>{
-  const sec = document.createElement("section"); sec.className="stage";
-  sec.innerHTML = `<div class="stagehead"><span class="code">${st.code}</span><h2>${st.name}</h2></div>`;
-  st.items.forEach(it=>{
-    const el = document.createElement("div"); el.className="item"; el.dataset.id=it.id;
-    if(S.v[it.id]) el.dataset.v=S.v[it.id];
-    let param = "";
-    if(it.p){
-      const pv = S.p[it.id]!==undefined ? S.p[it.id] : it.p.v;
-      param = `<span class="param">${it.p.t} <input type="number" step="0.1" inputmode="decimal" id="p-${it.id}" value="${pv}" aria-label="${it.n}: ${it.p.t}"> <span class="unit">${it.p.u}</span>`;
-      if(it.p.v2!==undefined){
-        const pv2 = S.p2[it.id]!==undefined ? S.p2[it.id] : it.p.v2;
-        param += ` <input type="number" step="0.1" inputmode="decimal" id="p2-${it.id}" value="${pv2}" aria-label="${it.n}: alvo soja"> <span class="unit">${it.p.u2}</span>`;
-      }
-      param += `</span>`;
-    }
-    if(it.sel){
-      param = `<span class="param">Usamos <select id="s-${it.id}" aria-label="${it.n}"><option value="">Escolha</option>${it.sel.map(o=>`<option${S.sel[it.id]===o?" selected":""}>${o}</option>`).join("")}</select></span>`;
-    }
-    el.innerHTML = `
-      <div class="ihead"><span class="icode">${it.id}</span><div class="itext">
-        <span class="iname">${it.n}</span><span class="idesc">${it.d}</span>${it.r?`<span class="iref">${it.r}</span>`:""}
-      </div></div>
-      <div class="controls">
-        <span class="seg" role="group" aria-label="Importância de ${it.n}">
-          <button type="button" data-v="e" aria-pressed="${S.v[it.id]==="e"}">Essencial</button>
-          <button type="button" data-v="u" aria-pressed="${S.v[it.id]==="u"}">Útil</button>
-          <button type="button" data-v="n" aria-pressed="${S.v[it.id]==="n"}">Não uso</button>
-        </span>
-        <label class="how" for="h-${it.id}">Hoje
-          <select id="h-${it.id}"><option value="">como mede?</option>${HOW.map(h=>`<option${S.how[it.id]===h?" selected":""}>${h}</option>`).join("")}</select></label>
-        ${param}
-      </div>`;
-    el.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{
-      const v = S.v[it.id]===b.dataset.v ? undefined : b.dataset.v;
-      if(v) S.v[it.id]=v; else delete S.v[it.id];
-      el.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed", String(x.dataset.v===v)));
-      if(v) el.dataset.v=v; else delete el.dataset.v;
+const host = document.getElementById("blocks");
+BLOCKS.forEach(b=>{
+  const sec = document.createElement("section"); sec.className="block";
+  const h = document.createElement("h2"); h.textContent = b.name; sec.append(h);
+  b.items.forEach(it=>{
+    const row = document.createElement("div"); row.className="row";
+    if(S.v[it.id]) row.dataset.v = S.v[it.id];
+    row.innerHTML = `<div class="rtext"><span class="rname">${it.n}</span><span class="rdesc">${it.d}</span></div>
+      <span class="seg" role="group" aria-label="${it.n}">${["e","u","n"].map(v=>`<button type="button" data-v="${v}" aria-pressed="${S.v[it.id]===v}">${LBL[v]}</button>`).join("")}</span>`;
+    row.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
+      const v = S.v[it.id]===btn.dataset.v ? undefined : btn.dataset.v;
+      if(v){ S.v[it.id]=v; row.dataset.v=v; } else { delete S.v[it.id]; delete row.dataset.v; }
+      row.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", String(x.dataset.v===v)));
       save(); update();
     }));
-    el.querySelector(`#h-${it.id}`).addEventListener("change",e=>{S.how[it.id]=e.target.value; save(); update();});
-    const pi = el.querySelector(`#p-${it.id}`); if(pi) pi.addEventListener("input",e=>{S.p[it.id]=e.target.value; save(); update();});
-    const pi2 = el.querySelector(`#p2-${it.id}`); if(pi2) pi2.addEventListener("input",e=>{S.p2[it.id]=e.target.value; save(); update();});
-    const si = el.querySelector(`#s-${it.id}`); if(si) si.addEventListener("change",e=>{S.sel[it.id]=e.target.value; save(); update();});
-    sec.append(el);
+    sec.append(row);
   });
-  const note = document.createElement("div"); note.className="field";
-  note.innerHTML = `<label for="n-${st.code}" class="small">Comentário sobre ${st.name.toLowerCase()} (opcional)</label><textarea id="n-${st.code}" style="min-height:52px"></textarea>`;
-  sec.append(note);
   host.append(sec);
 });
 
-["p-nome","p-emp","p-func","p-cap","g-n1","g-c1","g-n2","g-c2","g-n3","g-c3","g-dor","n-A","n-B","n-C","n-D","n-E"].forEach(id=>{
-  const el = document.getElementById(id);
-  if(S["f_"+id]) el.value = S["f_"+id];
-  el.addEventListener("input",()=>{S["f_"+id]=el.value; save(); update();});
-  el.addEventListener("change",()=>{S["f_"+id]=el.value; save(); update();});
+const tbox = document.getElementById("p-teste");
+["Sim","Talvez","Agora não"].forEach((o,i)=>{
+  const l = document.createElement("label"); l.className="chip";
+  const inp = document.createElement("input"); inp.type="radio"; inp.name="teste"; inp.id="t-"+i; inp.value=o;
+  if(S.teste===o) inp.checked=true;
+  inp.addEventListener("change",()=>{ S.teste=o; save(); update(); });
+  l.append(inp, document.createTextNode(o)); tbox.append(l);
 });
-
-const ALL = STAGES.flatMap(s=>s.items);
-const val = id => (S["f_"+id]||"").trim();
-const fmtN = x => String(x).replace(".",",");
+["p-nome","p-emp","p-falta"].forEach(id=>{
+  const el = document.getElementById(id);
+  if(S[id]) el.value = S[id];
+  el.addEventListener("input",()=>{ S[id]=el.value; save(); update(); });
+});
+const val = id => (S[id]||"").trim();
 
 function buildText(){
-  const L = [];
-  L.push("*Validação de indicadores · Armazém Digital*");
-  L.push([val("p-nome"), val("p-func"), val("p-emp")].filter(Boolean).join(" · ") || "(sem identificação)");
-  const perfil = [];
-  if(val("p-cap")) perfil.push(`${Number(val("p-cap")).toLocaleString("pt-BR")} t estáticas`);
-  if(S.prod?.length) perfil.push(S.prod.join(", "));
-  if(S.terc) perfil.push("recebe de terceiros: "+S.terc.toLowerCase());
-  if(S.reg?.length) perfil.push("registra em: "+S.reg.join(", ").toLowerCase());
-  if(perfil.length) L.push("Unidade: "+perfil.join(" · "));
-  const grupo = (v,t)=>{
+  const L = ["*Armazém Digital · indicadores*"];
+  L.push([val("p-nome"), val("p-emp")].filter(Boolean).join(" · ") || "(sem identificação)");
+  ["e","u","n"].forEach(v=>{
     const its = ALL.filter(i=>S.v[i.id]===v);
-    if(!its.length) return;
-    L.push(""); L.push(`*${t}* (${its.length})`);
-    its.forEach(i=>{
-      let s = `${i.id} ${i.n}`;
-      const ex = [];
-      if(S.how[i.id]) ex.push("hoje: "+S.how[i.id].toLowerCase());
-      if(v!=="n" && i.p){
-        const a = S.p[i.id]!==undefined ? S.p[i.id] : i.p.v;
-        if(a!=="" && a!==undefined){
-          let t2 = `${i.p.t.toLowerCase()} ${fmtN(a)} ${i.p.u}`;
-          if(i.p.v2!==undefined){ const b = S.p2[i.id]!==undefined ? S.p2[i.id] : i.p.v2; t2 += ` / ${fmtN(b)} ${i.p.u2}`; }
-          ex.push(t2);
-        }
-      }
-      if(i.sel && S.sel[i.id]) ex.push(S.sel[i.id]);
-      if(ex.length) s += " ("+ex.join("; ")+")";
-      L.push("• "+s);
-    });
-  };
-  grupo("e","ESSENCIAL"); grupo("u","ÚTIL"); grupo("n","NÃO USA");
-  const falt = ALL.filter(i=>!S.v[i.id]).map(i=>i.id);
-  if(falt.length && falt.length<TOTAL) L.push("", "Sem resposta: "+falt.join(", "));
-  const notas = STAGES.map(s=>[s,val("n-"+s.code)]).filter(x=>x[1]);
-  if(notas.length){ L.push("", "*Comentários*"); notas.forEach(([s,t])=>L.push(`${s.code} ${s.name}: ${t}`)); }
-  if(S.avisos?.length){ L.push("", "*Avisos no WhatsApp:* "+S.avisos.join(", ")); }
-  if(S.quem?.length){ L.push("*Quem recebe:* "+S.quem.join(", ")); }
-  const novos = [1,2,3].map(k=>[val("g-n"+k),val("g-c"+k)]).filter(x=>x[0]);
-  if(novos.length){ L.push("", "*Indicadores que faltaram*"); novos.forEach(([n,c])=>L.push("• "+n+(c?` (hoje: ${c})`:""))); }
-  if(val("g-dor")) L.push("", "*Maior dor:* "+val("g-dor"));
-  if(S.teste) L.push("", "*Teste de 30 dias:* "+S.teste);
+    if(its.length){ L.push("", `*${LBL[v].toUpperCase()}*`); its.forEach(i=>L.push(`• ${i.n}`)); }
+  });
+  if(val("p-falta")) L.push("", "*Faltou:* "+val("p-falta"));
+  if(S.teste) L.push("", "*Teste 30 dias:* "+S.teste);
   return L.join("\n");
 }
-
 function update(){
   const n = Object.keys(S.v).length;
-  document.getElementById("progtxt").textContent = `${n} de ${TOTAL} indicadores marcados`;
+  document.getElementById("progtxt").textContent = `${n} de ${TOTAL} marcados`;
   document.getElementById("fill").style.width = (n/TOTAL*100)+"%";
-  const txt = buildText();
-  document.getElementById("out").textContent = txt;
-  document.getElementById("wa").href = `https://wa.me/${WA}?text=${encodeURIComponent(txt)}`;
-  const w = document.getElementById("warn");
-  if(n===0){ w.hidden=false; w.textContent="Nenhum indicador marcado ainda. Marque pelo menos os essenciais antes de enviar."; }
-  else if(!val("p-nome") && !val("p-emp")){ w.hidden=false; w.textContent="Preencha seu nome ou a empresa lá em cima, para sabermos de quem é a resposta."; }
-  else w.hidden=true;
+  const wa = document.getElementById("wa");
+  wa.href = `https://wa.me/${WA}?text=${encodeURIComponent(buildText())}`;
+  wa.setAttribute("aria-disabled", String(n===0));
 }
 document.getElementById("copy").addEventListener("click", async e=>{
-  const b = e.currentTarget, txt = buildText();
-  try{ await navigator.clipboard.writeText(txt); b.textContent="Texto copiado"; }
-  catch(err){
-    const r = document.createRange(); r.selectNodeContents(document.getElementById("out"));
-    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-    b.textContent="Texto selecionado, use Copiar";
-  }
-  setTimeout(()=>b.textContent="Copiar texto", 2600);
+  const b = e.currentTarget;
+  try{ await navigator.clipboard.writeText(buildText()); b.textContent="respostas copiadas"; }
+  catch(err){ b.textContent="não deu para copiar, use o botão Enviar"; }
+  setTimeout(()=>b.textContent="copiar respostas", 2600);
 });
 update();
 </script>
